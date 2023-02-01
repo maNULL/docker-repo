@@ -32,7 +32,10 @@ reposync \
     --repoid=pgdg12 \
     --repoid=pgdg13 \
     --repoid=pgdg14 \
-    --repoid=pgdg15
+    --repoid=pgdg15 \
+    --repoid=zabbix \
+    --repoid=zabbix-agent2-plugins \
+    --repoid=zabbix-non-supported
 
 
 
