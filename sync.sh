@@ -16,7 +16,23 @@ docker volume create --driver=local --opt type=ext4 --opt device=/dev/disk/by-uu
 
 docker build --file ol9.Dockerfile --tag manull/ol9:latest .
 
-### reposync --newest-only --download-metadata --download-path=/docker_repo --exclude='*.src' --repoid=ol9_baseos_latest --repoid=ol9_appstream --repoid=ol9_UEKR7 --repoid=ol9_developer_EPEL --repoid=remi-modular --repoid=remi-safe
+reposync \
+    --newest-only \
+    --download-metadata \
+    --exclude='*.src' \
+    --download-path=/docker_repo \
+    --repoid=ol9_baseos_latest \
+    --repoid=ol9_appstream \
+    --repoid=ol9_UEKR7 \
+    --repoid=ol9_developer_EPEL \
+    --repoid=remi-modular \
+    --repoid=remi-safe \
+    --repoid=pgdg-common \
+    --repoid=pgdg11 \
+    --repoid=pgdg12 \
+    --repoid=pgdg13 \
+    --repoid=pgdg14 \
+    --repoid=pgdg15
 
 
 
