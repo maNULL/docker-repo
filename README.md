@@ -276,4 +276,27 @@ proxmox-offline-mirror config mirror add \
 	--repository 'deb http://download.proxmox.com/debian/pmg bullseye pmg-no-subscription' \
 	--sync true \
 	--verify true
+
+proxmox-offline-mirror config media add \
+    --id proxmox-bullseye \
+    --mirrors debian_bullseye_main \
+    --mirrors debian_bullseye_security \
+    --mirrors debian_bullseye_backports \
+    --mirrors debian_bullseye_updates \
+    --mirrors pve_bullseye_no_subscription \
+    --mirrors pbs_bullseye_no_subscription \
+    --mirrors pmg_bullseye_no_subscription \
+    --sync true \
+    --verify true \
+    --mountpoint /docker_repo/Debian-media
+```
+
+##### Создание снимка репозитория
+```bash
+proxmox-offline-mirror mirror snapshot create-all
+```
+
+##### Создание съемного носителя с репозиторием
+```bash
+proxmox-offline-mirror medium sync proxmox-bullseye
 ```
