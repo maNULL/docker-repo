@@ -27,7 +27,7 @@ docker build --file deb11.Dockerfile --tag manull/deb11repo:latest .
 #### OracleLinux
 ```bash
 docker run --rm -it -v docker_repo:/docker_repo \
-	manull/ol9:latest \
+	manull/ol9repo:latest \
         reposync \
             --newest-only \
             --download-metadata \
