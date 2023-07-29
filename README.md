@@ -11,7 +11,18 @@ dnf -y install \
 	docker-ce-cli \
 	containerd.io \
 	docker-compose-plugin
+```
+Changing the Storage Location
+```bash
+mkdir -p /tmp/new-docker-root-dir
 
+cat /etc/docker/daemon.json 
+{ 
+   "data-root": "/tmp/new-docker-root-dir"
+}
+```
+
+```bash
 systemctl enable --now docker.service
 
 docker volume create \
@@ -37,6 +48,8 @@ docker run --rm -it -v docker_repo:/docker_repo \
             --repoid=ol9_appstream \
             --repoid=ol9_UEKR7 \
             --repoid=ol9_developer_EPEL \
+            --repoid=ol9_addons \
+            --repoid=ol9_kvm_utils \
             --repoid=remi-modular \
             --repoid=remi-safe \
             --repoid=pgdg-common \
@@ -46,7 +59,6 @@ docker run --rm -it -v docker_repo:/docker_repo \
             --repoid=pgdg14 \
             --repoid=pgdg15 \
             --repoid=zabbix \
-            --repoid=zabbix-agent2-plugins \
             --repoid=zabbix-non-supported
 ```
 
